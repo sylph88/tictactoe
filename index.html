@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
     <title>Tic Tac Toe</title>
 </head>
 <body>
@@ -16,20 +17,20 @@
     </header>
     <main class="board-container"> 
         <div class="board">
-            <div class="square x">X</div>
-            <div class="square o">
-                <svg viewBox="0 0 100 100" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="40" stroke="#EF86A9" stroke-width="12" fill="none" />
-                </svg>
-            </div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
+            <div class="square" data-index="0"></div>
+            <div class="square" data-index="1"></div>
+            <div class="square" data-index="2"></div>
+            <div class="square" data-index="3"></div>
+            <div class="square" data-index="4"></div>
+            <div class="square" data-index="5"></div>
+            <div class="square" data-index="6"></div>
+            <div class="square" data-index="7"></div>
+            <div class="square" data-index="8"></div>
         </div>
+        <button class="play">Play</button>
     </main>
 </body>
 </html>
+<!--<svg viewBox="0 0 100 100" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" stroke="#EF86A9" stroke-width="12" fill="none"/>
+    </svg>-->

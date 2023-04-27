@@ -1,5 +1,6 @@
+// UI
 const gameUI = (() => {
-  const play = document.querySelector(".play");
+  const reset = document.querySelector(".reset");
   const nodes = document.querySelectorAll(".square");
 
   const updateSquare = (position, player) => {
@@ -10,11 +11,24 @@ const gameUI = (() => {
     nodes.forEach((node) => (node.textContent = ""));
   };
 
+  const winAnimation = (a, b, c) => {
+    nodes[a].classList.add("winning");
+    nodes[b].classList.add("winning");
+    nodes[c].classList.add("winning");
+
+    setTimeout(() => {
+      nodes[a].classList.remove("winning");
+      nodes[b].classList.remove("winning");
+      nodes[c].classList.remove("winning");
+    }, 1000);
+  };
+
   return {
     updateSquare,
     clearBoard,
+    winAnimation,
     nodes,
-    play,
+    reset,
   };
 })();
 
@@ -57,12 +71,11 @@ const game = (() => {
         state[a] == state[b] &&
         state[a] == state[c]
       ) {
-        console.log(`winner is ${state[a]}`);
         isGameOver = true;
+        gameUI.winAnimation(a, b, c);
         setTimeout(resetState, 1000);
         break;
       } else if (state.filter(Boolean).length == 9) {
-        console.log("draw");
         isGameOver = true;
         setTimeout(resetState, 1000);
         break;
@@ -93,4 +106,4 @@ const game = (() => {
 })();
 
 game.initializeGame();
-gameUI.play.addEventListener("click", game.resetState);
+gameUI.reset.addEventListener("click", game.resetState);
